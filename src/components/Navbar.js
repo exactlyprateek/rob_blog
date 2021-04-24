@@ -3,9 +3,8 @@ import React from 'react';
 import {
 	Box,
 	Flex,
-	Avatar,
 	HStack,
-	Link,
+	
 	IconButton,
 	Button,
 	Menu,
@@ -18,7 +17,7 @@ import {
 	useColorModeValue,
 	Stack
 } from '@chakra-ui/react';
-import { HamburgerIcon, CloseIcon, AddIcon, Search2Icon, SunIcon, MoonIcon } from '@chakra-ui/icons';
+import { HamburgerIcon, CloseIcon,  Search2Icon, SunIcon, MoonIcon } from '@chakra-ui/icons';
 import NavLink from './NavLink';
 //    <Link className="navbar-brand" to='/'>Robofied Blogs</Link> <NavLink className="nav-link" exact to='/'>Home <span className="sr-only">(current)</span></NavLink> <NavLink className="nav-link" exact to='/blog'>Blog</NavLink>
 

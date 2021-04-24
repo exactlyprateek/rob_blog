@@ -1,7 +1,6 @@
 import { Button } from '@chakra-ui/button';
 import { Box, Container } from '@chakra-ui/layout';
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 const home = () => (
 	<Container maxW="container.lg">
