@@ -30,7 +30,7 @@ function Navbar() {
   const { colorMode, toggleColorMode } = useColorMode();
   const { isOpen, onOpen, onClose } = useDisclosure();
   const Links = ["Home", "Blogs"];
-  const Urls = ["/", "/blog"];
+  const Urls = ["/", "/blogs"];
   return (
     <div>
       <Box bg={useColorModeValue("grey.400", "grey.900")} px={4}>
@@ -43,7 +43,7 @@ function Navbar() {
             onClick={isOpen ? onClose : onOpen}
           />
           <HStack spacing={8} alignItems={"center"}>
-            <Box>Robofied</Box>
+            <Box>Blog App!</Box>
             <HStack
               as={"nav"}
               spacing={4}
@@ -52,12 +52,13 @@ function Navbar() {
               {Links.map((link, idx) => (
                 <NavLink title={link} url={Urls[idx]} key={link} />
               ))}
+             <Button color>Create New</Button> 
             </HStack>
           </HStack>
           <Flex alignItems={"center"}>
             <Button
               p="1.3rem 0.9rem 1.3rem 0.9rem"
-              rounded={"full"}
+              rounded={"lg"}
               onClick={toggleColorMode}
               variant={"solid"}
               colorScheme={"telegram"}
@@ -69,13 +70,13 @@ function Navbar() {
             <Menu>
               <MenuButton
                 _hover={{
-                  transform: "scale(1.1)",
+                  transform: "scale(1.01)",
                   outline: "0.5px white solid",
                 }}
                 transition="all 0.5s"
                 transform="scale(1)"
                 outline="0px transparent solid"
-                rounded={"full"}
+                rounded={"lg"}
                 as={Button}
                 p="1.3rem 0.8rem 1.3rem 0.8rem"
                 variant={"link"}
