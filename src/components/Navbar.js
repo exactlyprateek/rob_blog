@@ -52,7 +52,7 @@ function Navbar() {
               {Links.map((link, idx) => (
                 <NavLink title={link} url={Urls[idx]} key={link} />
               ))}
-             <Button color>Create New</Button> 
+             <Button >Create New</Button> 
             </HStack>
           </HStack>
           <Flex alignItems={"center"}>
