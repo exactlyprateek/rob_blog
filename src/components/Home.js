@@ -21,7 +21,7 @@ function Home() {
             textDecoration="none"
             colorScheme="telegram"
             mt="3"
-            to="/blog"
+            to="/blogs"
             _hover={{ color: useColorModeValue(["white", "blue"]) }}
           >
             Check out The Blogs

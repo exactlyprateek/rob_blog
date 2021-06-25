@@ -1,27 +1,20 @@
-import {
-  Box,
-  Center,
-  Heading,
-  Text,
-  Stack,
-  Avatar,
-  useColorModeValue,
-} from "@chakra-ui/react";
-import React from "react";
+import { Box, Center, Heading, Text, Stack, Avatar, useColorModeValue, Link } from '@chakra-ui/react';
+import React, { useState } from 'react';
 
-function BlogView() {
-  return (
-    <Center py={6}>
-      <Box
-        maxW={"445px"}
-        w={"full"}
-        bg={useColorModeValue("white", "gray.900")}
-        boxShadow={"2xl"}
-        rounded={"md"}
-        p={6}
-        overflow={"hidden"}
-      >
-        {/* <Box
+function BlogView(props) {
+	const [ lines, setLines ] = useState(3);
+	return (
+		<Center py={6}>
+			<Box
+				maxW={'445px'}
+				w={'full'}
+				bg={useColorModeValue('white', 'gray.900')}
+				boxShadow={'2xl'}
+				rounded={'md'}
+				p={6}
+				overflow={'hidden'}
+			>
+				{/* <Box
           h={"210px"}
           bg={"gray.100"}
           mt={-6}
@@ -35,43 +28,41 @@ function BlogView() {
             }
           />
         </Box> */}
-        <Stack>
-          <Text
-            color={"green.500"}
-            textTransform={"uppercase"}
-            fontWeight={800}
-            fontSize={"sm"}
-            letterSpacing={1.1}
-          >
-            Blog
-          </Text>
-          <Heading
-            color={useColorModeValue("gray.700", "white")}
-            fontSize={"2xl"}
-            fontFamily={"body"}
-          >
-            Boost your conversion rate
-          </Heading>
-          <Text color={"gray.500"}>
-            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-            nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
-            erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
-            et ea rebum.
-          </Text>
-        </Stack>
-        <Stack mt={6} direction={"row"} spacing={4} align={"center"}>
-          <Avatar
-            src={"https://avatars0.githubusercontent.com/u/1164541?v=4"}
-            alt={"Author"}
-          />
-          <Stack direction={"column"} spacing={0} fontSize={"sm"}>
-            <Text fontWeight={600}>Achim Rolle</Text>
-            <Text color={"gray.500"}>Feb 08, 2021 · 6min read</Text>
-          </Stack>
-        </Stack>
-      </Box>
-    </Center>
-  );
+				<Stack>
+					<Text
+						color={'green.500'}
+						textTransform={'uppercase'}
+						fontWeight={800}
+						fontSize={'sm'}
+						letterSpacing={1.1}
+					>
+						{props.tag}
+					</Text>
+					<Heading color={useColorModeValue('gray.700', 'white')} fontSize={'2xl'} fontFamily={'body'}>
+						{props.title}
+					</Heading>
+					<Text noOfLines={lines} color={'gray.500'}>
+						{props.body}
+					</Text>
+					<Link
+						colorScheme="blue"
+						onClick={() => {
+							lines === 3 ? setLines(9999) : setLines(3);
+						}}
+					>
+						{lines === 3 ? 'Read More' : 'Read Less'}
+					</Link>
+				</Stack>
+				<Stack mt={6} direction={'row'} spacing={4} align={'center'}>
+					<Avatar src={`https://picsum.photos/id/${props.title.length}/200/300.jpg`} alt={'Author'} />
+					<Stack direction={'column'} spacing={0} fontSize={'sm'}>
+						<Text fontWeight={600}>{props.author}</Text>
+						<Text color={'gray.500'}>{props.info}</Text>
+					</Stack>
+				</Stack>
+			</Box>
+		</Center>
+	);
 }
 
 export default BlogView;
